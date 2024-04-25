@@ -1,0 +1,22 @@
+type Mutation {
+    register(input: RegistrationInput!): String
+    authenticate(input: AuthenticationInput!): AuthenticationResponse
+    confirm(token: String!): Boolean
+}
+input RegistrationInput {
+    firstname: String!
+    lastname: String!
+    email: String!
+    password: String!
+    address: String
+    contactNumber: String
+    dateOfBirth: String
+}
+input AuthenticationInput {
+    usernameOrEmail: String!
+    password: String!
+}
+type AuthenticationResponse {
+    token: String
+    # Add any other fields you want to return upon authentication
+}
